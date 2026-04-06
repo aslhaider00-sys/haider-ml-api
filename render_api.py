@@ -1,14 +1,16 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import base64
 import numpy as np
 import cv2
 from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
+CORS(app)
 
 # Load your model
 model = load_model("Model/keras_model.h5")
-labels = open("Model/labels.txt")
+labels = [line.strip() for line in open("Model/labels.txt", "r").readlines()]
 
 @app.route('/predict/', methods=['POST'])
 def predict():

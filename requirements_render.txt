@@ -1,6 +1,7 @@
 flask
+flask-cors
 tensorflow==2.12.1
 mediapipe==0.10.18
-opencv-python
+opencv-python-headless
 numpy
 gunicorn
